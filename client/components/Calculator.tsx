@@ -1,40 +1,32 @@
 export default function calculate() {
 
-// TODO if time allows : Refactor with function to reduce repetition
-//   const getAmount = (id: string) => {
-//   const input = document.querySelector<HTMLInputElement>(`#${id}`)
-//   return Number(input?.value || 0);
-// }
-//  const salary = getAmount('salaryInput')
+// Refactored with function to reduce repetition
+  const getAmount = (id: string) => {
+  const input = document.querySelector<HTMLInputElement>(`#${id}`)
+  return Number(input?.value.replace(/[^0-9.-]+/g, '') || 0);
+  }
 
-// TODO: Get input values as plain numbers
-  const salary = Number((
-    document.querySelector('input[id="salaryInput"]') as HTMLInputElement
-  ).value.replace(/[^0-9.-]+/g, '')) || 0
-  const selfEmployed = Number((
-    document.querySelector('input[id="selfEmployedInput"]') as HTMLInputElement
-  ).value.replace(/[^0-9.-]+/g, '')) || 0
-  const benefit = Number((
-    document.querySelector('input[id="benefitInput"]') as HTMLInputElement
-  ).value.replace(/[^0-9.-]+/g, '')) || 0
-  const asset = Number((
-    document.querySelector('input[id="assetInput"]') as HTMLInputElement
-  ).value.replace(/[^0-9.-]+/g, '')) || 0
-  const overseas = Number((
-    document.querySelector('input[id="overseasInput"]') as HTMLInputElement
-  ).value.replace(/[^0-9.-]+/g, '')) || 0
+// Get input values
+  const salary = getAmount('salaryInput')
+  const selfEmployed = getAmount('selfEmployedInput')
+  const benefit = getAmount('benefitInput')
+  const asset = getAmount('assetInput')
+  const overseas = getAmount('overseasInput')
 
-// TODO: Get add input values to get total income
+// Add input values to get total income
   const arr = [salary, selfEmployed, benefit, asset, overseas]
   const totalIncome = arr.reduce((a, b) => {return a + b}, 0)
   console.log('Total Income: ', totalIncome)
 
-// TODO: tax time
-// Up to $15,600	10.5%
-// $15,601 - $53,500	17.5%
-// $53,501 - $78,100	30%
-// $78,101 - $180,000	33%
-// $180,001 and over	39%
+//  Display total income on homepage
+  const totalIncomePopUp = document.getElementById('totalIncome')
+  if (totalIncomePopUp) {
+  totalIncomePopUp.textContent = totalIncome.toLocaleString('en-NZ', { 
+    style: 'currency', 
+    currency: 'NZD' 
+  });}
+
+// Calculating tax - NZ tax brackets
  function calculateTax() {
   if (totalIncome <= 15600) {
     return totalIncome * 0.105
@@ -47,8 +39,15 @@ export default function calculate() {
   } else {
     return (15600 * 0.105) + ((53500 - 15600) * 0.175) + ((78100 - 53500) * 0.30) + ((180000 - 78100) * 0.33) + ((totalIncome - 180000) * 0.39)
  }}
+ 
+// Calculate result
+  const result = calculateTax()
 
-  const resultMessage = "Your total taxable income is: $" + totalIncome + ", and the tax payable is: $" + calculateTax().toFixed(2)
-  // TODO: Display the result on the page (not in alert)
-  alert(resultMessage)
+// Display the result on the homepage
+  const resultPopUp = document.getElementById('result')
+  if (resultPopUp) {
+  resultPopUp.textContent = result.toLocaleString('en-NZ', { 
+    style: 'currency', 
+    currency: 'NZD' 
+  });}
 }

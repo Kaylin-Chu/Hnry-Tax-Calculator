@@ -60,16 +60,15 @@ export default function Home() {
           placeholder="if applicable"
         />
         <br />
-        <label> Combined total income: </label>
-        {/* TODO: Total incomes */}
-
-        <br />
+  
         <button
           onClick={() => calculate()}
           className="m-2 rounded bg-blue-500 p-2 text-white"
         >
           Calculate Tax
         </button>
+        <p className="mt-10 text-2xl font-bold">Combined total income : <span id="totalIncome"></span></p>
+        <h2 className="mt-10 text-2xl font-bold">Tax payable:<span id="result"></span></h2>
       </div>
     </>
   )
