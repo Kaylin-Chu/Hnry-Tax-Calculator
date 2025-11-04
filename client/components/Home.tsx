@@ -22,6 +22,7 @@ export default function Home() {
         {/* TODO: Allow non-applicable fields to be left blank */}
         <label> Salary / Wages: </label>
         <input
+          id="salaryInput"
           className="amountInput"
           type="text" // Changed to text for Cleave to add comma (not a number)
           placeholder="if applicable"
@@ -29,6 +30,7 @@ export default function Home() {
         <br />
         <label> Self-employed Income: </label>
         <input
+          id="selfEmployedInput"
           className="amountInput"
           type="text" 
           placeholder="if applicable"
@@ -36,6 +38,7 @@ export default function Home() {
         <br />
         <label> Benefit / Student Allowance: </label>
         <input
+          id="benefitInput"
           className="amountInput"
           type="text" 
           placeholder="if applicable"
@@ -43,6 +46,7 @@ export default function Home() {
         <br />
         <label> Assets & Investments: </label>
         <input
+          id="assetInput"
           className="amountInput"
           type="text" 
           placeholder="if applicable"
@@ -50,6 +54,7 @@ export default function Home() {
         <br />
         <label> Overseas income: </label>
         <input
+          id="overseasInput"
           className="amountInput"
           type="text" 
           placeholder="if applicable"
