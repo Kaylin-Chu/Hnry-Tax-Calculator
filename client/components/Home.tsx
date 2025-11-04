@@ -4,72 +4,66 @@ import { useEffect } from 'react'
 
 export default function Home() {
   useEffect(() => {
-    new Cleave('#amountInput', {
+    const elements = document.querySelectorAll('.amountInput');
+    elements.forEach((el) => {
+    new Cleave(el as HTMLElement, {
       numeral: true,
       numeralThousandsGroupStyle: 'thousand',
       prefix: ' $',
+    })
     })
   }, [])
 
   return (
     <>
       <div className="m-6 text-center">
-        <h2 className="mt-10 text-2xl font-bold">Debt Repayment Details</h2>
+        <h2 className="mt-10 text-2xl font-bold">Insert Taxable Incomes here</h2>
+        <p className="text-xs">Feel free to leave any non-applicable fields blank! </p>
+        {/* TODO: Allow non-applicable fields to be left blank */}
+        <label> Salary / Wages: </label>
         <input
-          id="amountInput"
+          className="amountInput"
           type="text" // Changed to text for Cleave to add comma (not a number)
-          placeholder="$ Extra Amount"
-          className="m-2 border p-2"
+          placeholder="if applicable"
         />
+        <br />
+        <label> Self-employed Income: </label>
         <input
-          id="frequencyInput"
-          list="Frequencies"
-          type="string"
-          placeholder="Frequency"
-          className="m-2 border p-2"
+          className="amountInput"
+          type="text" 
+          placeholder="if applicable"
         />
-        <datalist id="Frequencies">
-          <option value="Daily" label="Daily" />
-          <option value="Weekly" label="Weekly" />
-          <option value="Fortnightly" label="Fortnightly" />
-          <option value="Monthly" label="Monthly" />
-          <option value="Quarterly" label="Quarterly" />
-          <option value="Yearly" label="Yearly" />
-        </datalist>
+        <br />
+        <label> Benefit / Student Allowance: </label>
         <input
-          id="interestInput"
-          type="number"
-          placeholder="Interest Rate (%)"
-          className="m-2 border p-2"
+          className="amountInput"
+          type="text" 
+          placeholder="if applicable"
         />
+        <br />
+        <label> Assets & Investments: </label>
         <input
-          id="timeInput"
-          type="number"
-          placeholder="Time Period (years)"
-          className="m-2 border p-2"
+          className="amountInput"
+          type="text" 
+          placeholder="if applicable"
         />
-        <h2 className="mt-10 text-2xl font-bold">Investment Rate Estimate</h2>
+        <br />
+        <label> Overseas income: </label>
         <input
-          id="investmentInput"
-          list="interestRates"
-          type="number"
-          placeholder="Investment Interest (%)"
-          className="m-2 border p-2"
+          className="amountInput"
+          type="text" 
+          placeholder="if applicable"
         />
-        <datalist id="interestRates">
-          <option value="7" label="Stock Market (avg 7%)" />
-          <option value="4" label="Bonds (avg 4%)" />
-          <option value="1" label="Savings Account (avg 1%)" />
-        </datalist>
-        {/* <i class="stocks"></i>
-        <i class="bonds"></i>
-        <i class="savings"></i> */}
+        <br />
+        <label> Combined total income: </label>
+        {/* TODO: Total incomes */}
+
         <br />
         <button
           onClick={() => calculate()}
           className="m-2 rounded bg-blue-500 p-2 text-white"
         >
-          Calculate
+          Calculate Tax
         </button>
       </div>
     </>
