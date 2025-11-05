@@ -70,14 +70,14 @@ export default function Home() {
           Calculate Tax
         </button>
         <p
-          className="mt-10 text-2xl font-bold"
+          className="mt-10 text-2xl font-bold drop-shadow-[0_-6px_6px_rgba(255,255,255,1)]"
           id="totalIncomeContainer"
           style={{ display: 'none' }}
         >
           Combined total income : <span id="totalIncome"></span>
         </p>
         <h2
-          className="mt-10 text-2xl font-bold"
+          className="mt-10 text-2xl font-bold drop-shadow-[0_-6px_6px_rgba(255,255,255,1)]"
           id="resultContainer"
           style={{ display: 'none' }}
         >

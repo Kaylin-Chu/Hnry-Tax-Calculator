@@ -4,7 +4,9 @@ function App() {
   return (
     <>
       <div>
-        <h1 className="mt-4 text-center text-3xl font-bold">Tax Calculator!</h1>
+        <h1 className="mt-4 text-center text-3xl font-bold drop-shadow-[0_-6px_6px_rgba(255,255,255,1)]">
+          Tax Calculator!
+        </h1>
         <h2 className="text-l mb-4 text-center">
           Use this tool to calculate how much tax you need to pay on your
           taxable income!

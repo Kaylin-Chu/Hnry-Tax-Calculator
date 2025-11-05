@@ -10,6 +10,9 @@ input {
   padding: 0.5rem;
 }
 html {
-  background-color: rgb(220 252 231);
-  background-image: url('../images/background.jpg');
+  /* background-color: rgb(220 252 231); */
+  background-image: url('../../images/background.jpg');
+  background-size: cover;
+  height: 100%;
+  background-position: center; 
 }
