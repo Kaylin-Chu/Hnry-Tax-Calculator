@@ -4,23 +4,26 @@ import { useEffect } from 'react'
 
 export default function Home() {
   useEffect(() => {
-    const elements = document.querySelectorAll('.amountInput');
+    const elements = document.querySelectorAll('.amountInput')
     elements.forEach((el) => {
-    new Cleave(el as HTMLElement, {
-      numeral: true,
-      numeralThousandsGroupStyle: 'thousand',
-      prefix: ' $',
-    })
+      new Cleave(el as HTMLElement, {
+        numeral: true,
+        numeralThousandsGroupStyle: 'thousand',
+        prefix: ' $',
+      })
     })
   }, [])
 
   return (
     <>
       <div className="m-6 text-center">
-        <h2 className="mt-10 text-2xl font-bold">Insert Taxable Incomes here</h2>
-        <p className="text-xs">Feel free to leave any non-applicable fields blank! </p>
-        {/* TODO: Allow non-applicable fields to be left blank */}
-        <label> Salary / Wages: </label>
+        <h2 className="mt-10 text-2xl font-bold">
+          Insert Taxable Incomes here
+        </h2>
+        <p className="text-xs">
+          Feel free to leave any non-applicable fields blank!{' '}
+        </p>
+        <label htmlFor="salary"> Salary / Wages: </label>
         <input
           id="salaryInput"
           className="amountInput"
@@ -28,47 +31,58 @@ export default function Home() {
           placeholder="if applicable"
         />
         <br />
-        <label> Self-employed Income: </label>
+        <label htmlFor="selfEmployed"> Self-employed Income: </label>
         <input
           id="selfEmployedInput"
           className="amountInput"
-          type="text" 
+          type="text"
           placeholder="if applicable"
         />
         <br />
-        <label> Benefit / Student Allowance: </label>
+        <label htmlFor="benefit"> Benefit / Student Allowance: </label>
         <input
           id="benefitInput"
           className="amountInput"
-          type="text" 
+          type="text"
           placeholder="if applicable"
         />
         <br />
-        <label> Assets & Investments: </label>
+        <label htmlFor="assets"> Assets & Investments: </label>
         <input
           id="assetInput"
           className="amountInput"
-          type="text" 
+          type="text"
           placeholder="if applicable"
         />
         <br />
-        <label> Overseas income: </label>
+        <label htmlFor="overseas"> Overseas income: </label>
         <input
           id="overseasInput"
           className="amountInput"
-          type="text" 
+          type="text"
           placeholder="if applicable"
         />
         <br />
-  
         <button
           onClick={() => calculate()}
           className="m-2 rounded bg-blue-500 p-2 text-white"
         >
           Calculate Tax
         </button>
-        <p className="mt-10 text-2xl font-bold">Combined total income : <span id="totalIncome"></span></p>
-        <h2 className="mt-10 text-2xl font-bold">Tax payable:<span id="result"></span></h2>
+        <p
+          className="mt-10 text-2xl font-bold"
+          id="totalIncomeContainer"
+          style={{ display: 'none' }}
+        >
+          Combined total income : <span id="totalIncome"></span>
+        </p>
+        <h2
+          className="mt-10 text-2xl font-bold"
+          id="resultContainer"
+          style={{ display: 'none' }}
+        >
+          Tax payable:<span id="result"></span>
+        </h2>
       </div>
     </>
   )

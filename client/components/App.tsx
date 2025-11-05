@@ -4,16 +4,13 @@ function App() {
   return (
     <>
       <div className="bg-green-100">
-        <h1 className="text-3xl text-center font-bold mt-4">
-          Tax Calculator!
-        </h1>
-        <h2 className="text-l text-center mb-4">
-          Use this tool to calculate how much tax you pay on your taxable income!
+        <h1 className="mt-4 text-center text-3xl font-bold">Tax Calculator!</h1>
+        <h2 className="text-l mb-4 text-center">
+          Use this tool to calculate how much tax you need to pay on your
+          taxable income!
         </h2>
         <Outlet />
-        <footer className="text-center text-sm mt-20"> 
-          © Kaylin 2025
-        </footer>
+        <footer className="mt-20 text-center text-sm">© Kaylin 2025</footer>
       </div>
     </>
   )
