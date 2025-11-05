@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 function App() {
   return (
     <>
-      <div className="bg-green-100">
+      <div>
         <h1 className="mt-4 text-center text-3xl font-bold">Tax Calculator!</h1>
         <h2 className="text-l mb-4 text-center">
           Use this tool to calculate how much tax you need to pay on your

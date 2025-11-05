@@ -7,5 +7,9 @@ input {
   border-width: 1px;
   border-style: solid;
   border-color: #e2e8f0;
-  padding: 0.5rem
+  padding: 0.5rem;
+}
+html {
+  background-color: rgb(220 252 231);
+  background-image: url('../images/background.jpg');
 }
